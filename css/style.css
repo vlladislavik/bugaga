@@ -1,0 +1,1564 @@
+/* ===== Глобальные стили ===== */
+:root {
+  --primary: #c2185b;
+  --primary-light: #f8bbd0;
+  --primary-dark: #8c0032;
+  --secondary: #7b1fa2;
+  --dark: #333;
+  --light: #fff9f9;
+  --gray: #eee;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== Общие компоненты ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: var(--primary);
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+/* ===== Шапка ===== */
+header {
+  background-color: var(--light);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover, nav a.active {
+  color: var(--primary);
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+/* Основные стили для главной страницы */
+.hero-banner {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('../img/wisteria-lane-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(194, 24, 91, 0.1), rgba(33, 33, 33, 0.7));
+    z-index: 2;
+}
+
+.scroll-down {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+
+.scroll-down span {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.scroll-down svg {
+    animation: bounce 2s infinite;
+}
+
+.scroll-down:hover {
+    transform: translateY(5px);
+}
+
+/* О сериале */
+.about-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.about-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Персонажи */
+.characters-section {
+    padding: 80px 0;
+    background-color: #faf5f7;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.character-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(194, 24, 91, 0.1);
+}
+
+.character-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.character-card h3 {
+    margin: 20px 0 10px;
+    color: #c2185b;
+}
+
+.character-card p {
+    color: #666;
+    padding: 0 20px 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Цитата */
+.quote-section {
+    padding: 60px 0;
+    background-color: #c2185b;
+    color: white;
+}
+
+.quote-section blockquote {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.quote-section cite {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 300;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* ===== Секция особенностей ===== */
+.features {
+  padding: 80px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.feature-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--primary);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+}
+
+/* ===== Секция персонажей ===== */
+.main-characters {
+  padding: 80px 0;
+  background-color: #fcf5f7;
+}
+
+.character-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.character-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.character-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.character-card:hover img {
+  transform: scale(1.05);
+}
+
+.character-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 20px;
+  color: white;
+}
+
+.character-info h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* ===== Секция сезонов ===== */
+.season-highlight {
+  background: linear-gradient(rgba(194, 24, 91, 0.9), rgba(194, 24, 91, 0.9)), url('../img/season-bg.jpg') center/cover no-repeat;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.season-content h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.season-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* ===== Подвал ===== */
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 80px;
+}
+
+/* Стили для страницы "Героини" */
+.heroines-page {
+    padding: 40px 0;
+}
+
+.page-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 0;
+    background-color: #faf3f5;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #c2185b;
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.character-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.character-card.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-content {
+    padding: 30px;
+}
+
+.character-card.featured .character-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.character-meta {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.character-quote {
+    font-style: italic;
+    color: #c2185b;
+    padding: 15px 0;
+    margin: 15px 0;
+    border-left: 3px solid #f8bbd0;
+    padding-left: 15px;
+}
+
+.character-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.character-facts {
+    margin-top: 20px;
+}
+
+.character-facts li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 60px 0 40px;
+    font-size: 2rem;
+    color: #c2185b;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #c2185b;
+}
+
+.secondary-characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.character-card.mini {
+    text-align: center;
+}
+
+.character-card.mini img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.character-card.mini h3 {
+    margin: 20px 0 10px;
+    color: #c2185b;
+}
+
+.actor-name {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .character-card.featured {
+        grid-template-columns: 1fr;
+    }
+    
+    .character-image {
+        height: 300px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .secondary-characters {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .character-card.mini img {
+        height: 200px;
+    }
+}
+
+/* ===== Страница "Эпизоды" ===== */
+.page-header.with-bg {
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.page-header.with-bg .overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header.with-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--gray);
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: var(--primary);
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.episode-card {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.episode-media {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.episode-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.episode-details {
+  flex: 1;
+  padding: 30px;
+}
+
+.episode-meta {
+  display: flex;
+  gap: 20px;
+  margin: 15px 0;
+  color: #666;
+}
+
+.episode-rating {
+  color: #ffc107;
+}
+
+.episode-highlights {
+  margin-top: 20px;
+}
+
+.episode-highlights li {
+  margin: 10px 0;
+  padding-left: 30px;
+  position: relative;
+}
+
+.episode-highlights li::before {
+  content: "→";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+}
+
+.top-episodes {
+  margin: 80px 0;
+}
+
+.top-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.top-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  min-width: 40px;
+}
+
+/* ===== Страница "Викторина" ===== */
+.quiz-container {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.quiz-progress {
+  height: 10px;
+  background: var(--gray);
+  position: relative;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.quiz-progress span {
+  position: absolute;
+  right: 20px;
+  top: -30px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.quiz-content {
+  padding: 40px;
+}
+
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+
+.question h2 {
+  margin-bottom: 30px;
+}
+
+.answers {
+  margin: 30px 0;
+}
+
+.answer-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer-card:hover {
+  border-color: var(--primary-light);
+  background: #fff5f8;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .answer-card {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.answer-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.grid-answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.answer-option {
+  padding: 20px;
+  text-align: center;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer-option:hover {
+  border-color: var(--primary-light);
+  background: #fff5f8;
+}
+
+input[type="radio"]:checked + .answer-option {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.quiz-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.quiz-results {
+  padding: 40px;
+  text-align: center;
+}
+
+.result-header h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.result-item.correct {
+  background-color: #e8f5e9;
+  border-left: 4px solid #4caf50;
+}
+
+.result-item.incorrect {
+  background-color: #ffebee;
+  border-left: 4px solid #f44336;
+}
+
+.user-answer {
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+}
+
+.result-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ===== Анимации ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .character-profile, .character-profile.reversed {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 60vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .episode-card {
+    flex-direction: column;
+  }
+  
+  .quiz-navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-banner {
+    height: 50vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .quiz-content {
+    padding: 20px;
+  }
+}
+/* Стили для формы отзывов */
+.feedback-page {
+    padding: 40px 0;
+}
+
+.feedback-form {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.has-error input,
+.has-error textarea {
+    border-color: #c2185b;
+}
+
+.error-message {
+    color: #c2185b;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.rating-stars {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: #ffc107;
+}
+
+.rating-stars input:checked + label {
+    color: #ffc107;
+}
+
+/* Стили для списка отзывов */
+.reviews-list {
+    margin-top: 50px;
+}
+
+.review {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-header h3 {
+    margin: 0 15px 0 0;
+    color: #c2185b;
+}
+
+.review-rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-right: auto;
+}
+
+.review-header time {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-body {
+    line-height: 1.6;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.alert.error {
+    background-color: #ffebee;
+    color: #c62828;
+}
+/* Страница обратной связи */
+.feedback-page {
+    padding: 40px 0;
+}
+
+.feedback-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.feedback-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.reviews-list {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Форма */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #ff5252;
+}
+
+.error-message {
+    color: #ff5252;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Рейтинг */
+.rating {
+    display: flex;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #ffc107;
+}
+
+/* Отзывы */
+.reviews {
+    display: grid;
+    gap: 20px;
+}
+
+.review {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #c2185b;
+}
+
+.review-rating {
+    margin: 0 15px;
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.review-header time {
+    color: #777;
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.review-message {
+    line-height: 1.6;
+}
+
+/* Уведомления */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.alert.error {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .feedback-container {
+        grid-template-columns: 1fr;
+    }
+}
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
+}
+.reviews-container {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.review .rating {
+    color: gold;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.review small {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+/* Стили для секции с отзывами */
+.reviews-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.reviews-section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.review-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.review-rating {
+    color: gold;
+    font-size: 18px;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #666;
+}
+
+.review-text {
+    line-height: 1.5;
+}
+/* Стили для страницы обратной связи */
+.feedback-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.feedback-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #5a5a5a;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: #c2185b;
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Стили для отзывов */
+.reviews-section {
+    margin-top: 40px;
+}
+
+.reviews-section h2 {
+    color: #e91e63;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.review-rating {
+    color: gold;
+    font-size: 18px;
+}
+
+.review-text {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.review-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.no-reviews, .error-message {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.error-message {
+    color: #f44336;
+}

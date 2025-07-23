@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эпизоды | Отчаянные домохозяйки</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="./img/logo.svg" alt="Отчаянные домохозяйки" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="heroines.html">Героини</a></li>
+                    <li><a href="episodes.html" class="active">Эпизоды</a></li>
+                    <li><a href="feedback.html">Обратная связь</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="episodes-page">
+        <section class="page-header with-bg" style="background-image: url('./img/episodes-bg.jpg')">
+            <div class="overlay">
+                <h1>Эпизоды и трейлеры</h1>
+                <p>Все сезоны культового сериала в одном месте</p>
+            </div>
+        </section>
+
+        <section class="seasons-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-season="1">Сезон 1</button>
+                <button class="tab-btn" data-season="2">Сезон 2</button>
+                <button class="tab-btn" data-season="3">Сезон 3</button>
+                <button class="tab-btn" data-season="4">Сезон 4</button>
+            </div>
+
+            <div class="tab-content active" id="season-1">
+                <div class="season-info">
+                    <h2>Сезон 1 (2004-2005)</h2>
+                    <p>История начинается с самоубийства Мэри Элис Янг, что потрясает всех жителей Вистерия Лейн. Постепенно раскрываются тайны четырёх главных героинь.</p>
+                </div>
+
+                <div class="episode-card">
+                    <div class="episode-media">
+                        <iframe width="560" height="315" src="https://yandex.ru/video/preview/11674679744585363563" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="episode-details">
+                        <h3>1. Пилотная серия</h3>
+                        <div class="episode-meta">
+                            <span class="episode-date">3 октября 2004</span>
+                            <span class="episode-rating">★ 8.7/10</span>
+                        </div>
+                        <p>Мэри Элис Янг совершает самоубийство, оставив друзей в шоке. Знакомство с четырьмя главными героинями и их семьями.</p>
+                        <ul class="episode-highlights">
+                            <li>🔍 Начало главной загадки сезона</li>
+                            <li>💔 Первое появление Бри и Рекса</li>
+                            <li>🔥 Габриэль и садовник Джон</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="episode-card">
+                    <div class="episode-media">
+                        <img src="./img/episode2.jpg" alt="Эпизод 2">
+                        <button class="play-btn">▶ Смотреть трейлер</button>
+                    </div>
+                    <div class="episode-details">
+                        <h3>2. Завещание Мэри Элис</h3>
+                        <div class="episode-meta">
+                            <span class="episode-date">10 октября 2004</span>
+                            <span class="episode-rating">★ 8.5/10</span>
+                        </div>
+                        <p>Подруги пытаются понять причины самоубийства Мэри Элис. Бри обнаруживает, что её муж Рекс посещает клуб "Доминант".</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="season-2">
+                <!-- Контент для сезона 2 -->
+            </div>
+        </section>
+
+        <section class="top-episodes">
+            <h2>Лучшие эпизоды по версии IMDb</h2>
+            <div class="top-list">
+                <div class="top-item">
+                    <span class="top-number">1</span>
+                    <div class="top-info">
+                        <h3>"Remember" (Сезон 1, Эпизод 23)</h3>
+                        <p>Рейтинг: ★ 9.2/10</p>
+                    </div>
+                </div>
+                <div class="top-item">
+                    <span class="top-number">2</span>
+                    <div class="top-info">
+                        <h3>"Bang" (Сезон 4, Эпизод 17)</h3>
+                        <p>Рейтинг: ★ 9.1/10</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Фанатский сайт "Отчаянные домохозяйки"</p>
+    </footer>
+
+    <script src="./js/episodes.js"></script>
+</body>
+</html>
