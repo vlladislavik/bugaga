@@ -115,14 +115,11 @@
         </div>
     </footer>
 
-    <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => console.log('SW registered!'))
-      .catch(err => console.log('SW registration failed: ', err));
-  });
-}
-</script>
+<script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/serviceworker.js')
+            .then(function () { console.log('Service Worker Registered'); });
+        }
+    </script>
 </body>
 </html>
